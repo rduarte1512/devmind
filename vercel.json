@@ -1,15 +1,14 @@
 {
   "version": 2,
-  "builds": [
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
+      "source": "/create-checkout-session",
+      "destination": "/server.js"
+    },
     {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "source": "/",
+      "destination": "/landing.html"
     }
   ]
 }
