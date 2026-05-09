@@ -1,14 +1,4 @@
-const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const path = require('path');
-const app = express();
-
-app.use(express.json());
-app.use(express.static(__dirname));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'landing.html'));
-});
 
 const PLANS = {
   flash: {
@@ -28,7 +18,11 @@ const PLANS = {
   }
 };
 
-app.post('/create-checkout-session', async (req, res) => {
+module.exports = async (req, res) => {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   const { plan } = req.body;
   const planDetails = PLANS[plan];
 
@@ -37,7 +31,7 @@ app.post('/create-checkout-session', async (req, res) => {
   }
 
   try {
-    const domain = process.env.APP_URL || `http://localhost:${PORT}`;
+    const domain = process.env.APP_URL || `http://${req.headers.host}`;
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
@@ -54,7 +48,7 @@ app.post('/create-checkout-session', async (req, res) => {
       ],
       mode: 'payment',
       success_url: `${domain}/success.html`,
-      cancel_url: `${domain}/landing.html`,
+      cancel_url: `${domain}/`,
     });
 
     res.json({ id: session.id });
@@ -62,13 +56,4 @@ app.post('/create-checkout-session', async (req, res) => {
     console.error('Stripe Error:', error);
     res.status(500).json({ error: error.message });
   }
-});
-
-const PORT = process.env.PORT || 3000;
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-  });
-}
-
-module.exports = app;
+};
