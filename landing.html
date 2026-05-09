@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevMind - AI Engineering Assistant</title>
+  <meta name="description" content="O seu assistente de engenharia de software movido por IA. Crie código, corrija bugs e automatize o seu fluxo de trabalho diretamente no terminal.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header id="header">
+    <div class="container header-content">
+      <a href="#" class="logo">Dev<span>Mind</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features">Funcionalidades</a></li>
+          <li><a href="#pricing">Preços</a></li>
+          <li><a href="#terminal">Terminal</a></li>
+        </ul>
+      </nav>
+      <a href="#pricing" class="btn btn-secondary">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1 data-reveal>Construa o futuro da engenharia com <span class="gradient-text">IA</span></h1>
+        <p data-reveal>O DevMind é o CLI que entende o seu código. Crie funcionalidades complexas, corrija bugs críticos e realize refatorações profundas em segundos.</p>
+        <div class="cta-group" data-reveal>
+          <a href="#pricing" class="btn btn-primary">Ver Planos</a>
+          <a href="#terminal" class="btn btn-secondary">Ver Documentação</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2>Porquê o DevMind?</h2>
+          <p>Potência máxima diretamente no seu terminal favorito.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">⚡</div>
+            <h3>Velocidade Flash</h3>
+            <p>Respostas instantâneas para tarefas rápidas. Otimizado para baixa latência em correções triviais.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🧠</div>
+            <h3>Contexto Profundo</h3>
+            <p>Análise completa do seu repositório. O DevMind entende as relações entre os seus ficheiros.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🛡️</div>
+            <h3>Seguro por Design</h3>
+            <p>O seu código nunca é armazenado. Processamento seguro e privado para a sua empresa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2>Escolha o seu plano</h2>
+          <p>Pague apenas pelo que precisa. Upgrade a qualquer momento.</p>
+        </div>
+        
+        <div class="pricing-grid">
+          <!-- Flash Plan -->
+          <div class="pricing-card flash" data-reveal>
+            <div class="plan-badge">Flash</div>
+            <img src="flash-icon.png" alt="Flash Plan" class="floating">
+            <div class="price">€9<span>/mês</span></div>
+            <ul class="features-list">
+              <li>15k – 160k tokens/prompt</li>
+              <li>Modo Auto e Plano</li>
+              <li>Suporte prioritário</li>
+              <li>Atualizações incluídas</li>
+            </ul>
+            <button class="btn btn-secondary buy-button" data-plan="flash">Começar Agora</button>
+          </div>
+
+          <!-- Performance Plan (Featured) -->
+          <div class="pricing-card performance featured" data-reveal>
+            <div class="plan-badge">Performance</div>
+            <img src="performance-icon.png" alt="Performance Plan" class="floating">
+            <div class="price">€19<span>/mês</span></div>
+            <ul class="features-list">
+              <li>20k – 140k tokens/prompt</li>
+              <li>Todos os modelos incluídos</li>
+              <li>Modo Auto e Plano</li>
+              <li>Suporte prioritário 24/7</li>
+              <li>Atualizações incluídas</li>
+            </ul>
+            <button class="btn btn-primary buy-button" data-plan="performance">Mais Popular</button>
+          </div>
+
+          <!-- Ultra Plan -->
+          <div class="pricing-card ultra" data-reveal>
+            <div class="plan-badge">Ultra</div>
+            <img src="ultra-icon.png" alt="Ultra Plan" class="floating">
+            <div class="price">€39<span>/mês</span></div>
+            <ul class="features-list">
+              <li>30k – 200k tokens/prompt</li>
+              <li>Raciocínio Ultra-Profundo</li>
+              <li>Suporte dedicado 1-on-1</li>
+              <li>Acesso a recursos Beta</li>
+              <li>Tokens ilimitados/mês</li>
+            </ul>
+            <button class="btn btn-secondary buy-button" data-plan="ultra">Explorar Ultra</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terminal" class="features" style="background: #000;">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2>Instalação Instantânea</h2>
+          <p>Pronto para usar em menos de 10 segundos.</p>
+        </div>
+        <div style="background: #0a0a0f; padding: 2rem; border-radius: 16px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; max-width: 600px; margin: 0 auto;" data-reveal>
+          <div style="display: flex; gap: 8px; margin-bottom: 1rem;">
+            <div style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></div>
+            <div style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></div>
+            <div style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></div>
+          </div>
+          <p style="color: var(--accent-green);"># Instale globalmente</p>
+          <p><span style="color: var(--accent-cyan);">$</span> npm install -g devmind</p>
+          <br>
+          <p style="color: var(--accent-green);"># Inicie o seu primeiro projeto</p>
+          <p><span style="color: var(--accent-cyan);">$</span> devmind init</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 DevMind AI Engineering. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Reveal on Scroll
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Stripe Integration
+    const stripe = Stripe('pk_test_51TVEeALHBwC3reUOt8nRSpYfuHF5DlHHpXgOAc8Cg54gtPDoSw4wykdTv6cQMtTrD3A8CrtDEvkso3S4Y06XYAVK009Zk8X1QE');
+    
+    document.querySelectorAll('.buy-button').forEach(button => {
+      button.addEventListener('click', async (e) => {
+        const plan = e.target.getAttribute('data-plan');
+        button.innerText = 'Processando...';
+        button.disabled = true;
+
+        try {
+          const response = await fetch('/create-checkout-session', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ plan: plan }),
+          });
+
+          const session = await response.json();
+          
+          if (session.id) {
+            const result = await stripe.redirectToCheckout({
+              sessionId: session.id,
+            });
+            if (result.error) {
+              alert(result.error.message);
+            }
+          } else {
+            console.error('Erro ao criar sessão:', session);
+            alert('Erro ao processar pagamento. Verifique se o servidor está rodando.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Erro de conexão com o servidor.');
+        } finally {
+          button.innerText = 'Começar Agora';
+          button.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
